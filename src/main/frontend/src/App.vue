@@ -13,7 +13,8 @@
     <div v-else>
       <button :class = "isRegistering ? 'button-outline' : ''" @click = "isRegistering = false"> Zaloguj sie</button>
       <button  :class = "!isRegistering ? 'button-outline' : ''" @click = "isRegistering = true" > Zarejestruj sie</button>
-      <login-form @login="login($event)"></login-form>
+      <login-form v-if = "!isRegistering" @login="login($event)"></login-form>
+      <login-form  v-else @login="register($event)"></login-form>
     </div>
   </div>
 </template>
